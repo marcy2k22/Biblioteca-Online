@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BiblioBar</title>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='a.ico') }}">
+
+
+
+  <!-- favicon sfondo pulsante login ecc  -->
+  <style>
+
+:root{
+    --overlay-color-1: #7ec0df;
+    --overlay-color-2: #3838df;
+    --anim-duration: 2s;
+}
+
+#gradient {
+    opacity: 0.8;
+    background: none;
+}
+
+#gradient:after,
+#gradient:before {
+    content:normal;
+
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+}
+
+#gradient:before {
+    background: linear-gradient(135deg, var(--overlay-color-2) 0%, var(--overlay-color-1) 100%);
+    animation: OpacityAnim var(--anim-duration) ease-in-out 0s infinite alternate;
+}
+
+#gradient:after {
+    background: linear-gradient(135deg, var(--overlay-color-1) 0%, var(--overlay-color-2) 100%);
+    animation: OpacityAnim var(--anim-duration) ease-in-out calc(-1 * var(--anim-duration)) infinite alternate;
+}
+
+@keyframes OpacityAnim {
+    0%{opacity: 1.0}
+    100%{opacity: 0.0}
+}
+
+
+
+    ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+  border-right:1px solid #bbb;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+h1 {
+  font-size: 3em;
+  text-align: center;
+  color: #fff;
+  text-shadow: 2px 2px #000;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 2px;
+  margin-top: 80px;
+  margin-bottom: 50px;
+}
+
+    /* Inserisci qui il codice CSS */
+   
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .book {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    h2 {
+      margin-top: 10px;
+      font-size: 1.4em;
+    }
+
+    p {
+      margin-top: 5px;
+      font-size: 0.9em;
+      color: #555;
+    }
+    .button {
+    display: block;
+    margin: 0 auto;
+    background-color: #0a0a23;
+    color: #fff;
+    border: none; 
+    border-radius: 10px; 
+    padding: 15px;
+    min-height: 30px; 
+    min-width: 120px;
+}
+
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+.content:focus {
+  outline: none;
+  border: none;
+}
+
+body {
+  
+  text-align: center;
+  background: rgb(81,164,212);
+background: linear-gradient(90deg, rgba(81,164,212,1) 0%, rgba(125,220,244,1) 13%, rgba(119,213,236,1) 25%, rgba(42,184,219,1) 41%, rgba(65,166,186,1) 54%, rgba(63,168,188,1) 59%, rgba(62,169,189,1) 62%, rgba(46,185,205,1) 71%, rgba(38,193,213,1) 77%, rgba(76,163,207,1) 87%, rgba(85,134,191,1) 92%, rgba(88,97,177,1) 99%);
+}
+
+.content {
+  position: relative;
+  margin-top: 50px; /* adjust the value as needed */
+}
+
+.content h2 {
+  color: #fff;
+  font-size: 10em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.content h2:nth-child(1) {
+	color: transparent;
+	-webkit-text-stroke: 2px #0228a5;
+}
+
+.content h2:nth-child(2) {
+	color: #041a99;
+	animation: animate 4s ease-in-out infinite;
+}
+
+@keyframes animate {
+	0%,
+	100% {
+		clip-path: polygon(
+			0% 45%,
+			16% 44%,
+			33% 50%,
+			54% 60%,
+			70% 61%,
+			84% 59%,
+			100% 52%,
+			100% 100%,
+			0% 100%
+		);
+	}
+
+	50% {
+		clip-path: polygon(
+			0% 60%,
+			15% 65%,
+			34% 66%,
+			51% 62%,
+			67% 50%,
+			84% 45%,
+			100% 46%,
+			100% 100%,
+			0% 100%
+		);
+	}
+}
+
+button {
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: darkblue;
+  }
+  </style>
+</head>
+
+<body> 
+  
+    <ul>
+      <li><a class="active" href="#home">Home</a></li>
+      <li><a href="{{ url_for('accesso') }}">Accedi</a></li>
+      <li><a href="{{ url_for('about') }}">About</a></li>
+    </ul>
+    
+    <br> <br> 
+    <div class="content" name="c" id="1">
+      <h2>Bibliobar</h2>
+      <h2>Bibliobar</h2>
+  
+  </div>
+  <br><br><br>
+     
+     <br>
+      <br>
+  
+
+  <main>
+    {% for book in book_list %}
+      <div class="book">
+        <img src="{{ book.cover }}" alt="Copertina del libro {{ book.title }}">
+        <h2 style="color: rgb(3, 131, 6); font-size: 2.1em; font-weight: bold;">{{ book.title }}</h2>
+        <p style="color: blue; font-style: italic; font-size: 1.4em;">Autore: {{ book.author }}</p>
+        <p>Scarica qui questo libro ⬇️⬇️⬇️⬇️ </p>
+        
+        <p style="color: red; font-size: 1.4em;">
+  <a href="{{ url_for('download_book1', book_id=loop.index) }}" target="_blank"><button type="button">
+    <span>Download &#x1F4E5;</span>
+  </button> <br>
+         
+        </a></p>    </div>
+   
+    {% endfor %}
+  </main>
+  <br><br><br><br>
+  
+  <footer>
+
+   <!-- <button onclick="window.open('/form', '_blank')" class="button">Aggiungi un libro</button>-->
+
+  </footer>
+ <!-- python app.py -->
+<br>
+<br><br><br>
+</body>
+</html>

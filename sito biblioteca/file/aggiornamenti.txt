@@ -1,0 +1,24 @@
+registrazione v
+personale v
+pagina infov
+invece dell'isbn inserire il link per leggere il libro--> aggiornare parte isbn V
+
+
+
+cose da fare per finire il sito
+
+-
+-
+-
+-
+
+pagina per eliminare i libri:
+togliere bordi a piero
+
+
+
+funzione torna alla home nella registrazione deve tornare al form e non nella pagina index
+poter scaricare i pdf
+
+
+POTER MODIFICARE I LIBRI

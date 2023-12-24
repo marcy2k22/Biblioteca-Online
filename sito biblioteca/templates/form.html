@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="shortcut icon" href="{{ url_for('static', filename='a.ico') }}">
+  
+    <title>Registrazione libri</title>
+   
+
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>   
+    
+	
+    <style>
+        
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900');
+
+
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+article, header, section, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+    display: block;
+}
+body {
+    background:#f2eee1 none repeat scroll 0 0;
+    color: #222;
+    font-size: 100%;
+    line-height: 24px;
+    margin: 0;
+	padding:0;
+	font-family: "Raleway",sans-serif;
+}
+a{
+	font-family: "Raleway",sans-serif;
+	text-decoration: none;
+	outline: none;
+}
+a:hover, a:focus {
+	color: #373e18;
+}
+section {
+    float: left;
+    width: 100%;
+	padding-bottom:3em;
+}
+h2 {
+    color: #1a0e0e;
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0;
+    line-height: normal;
+	text-transform:uppercase;
+}
+h2 span {
+    display: block;
+    padding: 0;
+    font-size: 18px;
+    opacity: 0.7;
+    margin-top: 5px;
+	text-transform:uppercase;
+}
+
+#float-right{
+	float:right;	
+}
+
+/* ******************************************************
+	Script Top
+*********************************************************/
+
+.ScriptTop {
+    background: #fff none repeat scroll 0 0;
+    float: left;
+    font-size: 0.69em;
+    font-weight: 600;
+    line-height: 2.2;
+    padding: 12px 0;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+/* To Navigation Style 1*/
+.ScriptTop ul {
+    margin: 24px 0;
+    padding: 0;
+    text-align: left;
+}
+.ScriptTop li{
+	list-style:none;	
+	display:inline-block;
+}
+.ScriptTop li a {
+    background: #6a4aed none repeat scroll 0 0;
+    color: #fff;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px 18px;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+.ScriptTop li a:hover{
+	background:#000;
+	color:#fff;
+}
+
+
+/* ******************************************************
+	Script Header
+*********************************************************/
+
+.ScriptHeader {
+    float: left;
+    width: 100%;
+    padding: 2em 0;
+}
+.rt-heading {
+    margin: 0 auto;
+	text-align:center;
+}
+.Scriptcontent{
+	line-height:28px;	
+}
+.ScriptHeader h1{
+	font-family: "brandon-grotesque", "Brandon Grotesque", "Source Sans Pro", "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+    color: #6a4aed;
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0;
+    line-height: normal;
+
+}
+.ScriptHeader h2 {
+    color: #312c8f;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 5px 0 0;
+    line-height: normal;
+
+}
+.ScriptHeader h1 span {
+    display: block;
+    padding: 0;
+    font-size: 22px;
+    opacity: 0.7;
+    margin-top: 5px;
+
+}
+.ScriptHeader span {
+    display: block;
+    padding: 0;
+    font-size: 22px;
+    opacity: 0.7;
+    margin-top: 5px;
+}
+
+
+
+.rt-container {
+	margin: 0 auto;
+	padding-left:12px;
+	padding-right:12px;
+}
+.rt-row:before, .rt-row:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+
+.rt-row:after {
+  clear: both;
+}
+[class^="col-rt-"] {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  padding: 0 15px;
+  min-height: 1px;
+  position: relative;
+}
+
+
+@media (min-width: 768px) {
+  .rt-container {
+    width: 750px;
+  }
+  [class^="col-rt-"] {
+    float: left;
+    width: 49.9999999999%;
+  }
+  .col-rt-6, .col-rt-12 {
+    width: 100%;
+  }
+  
+}
+
+@media (min-width: 1200px) {
+	.rt-container {
+		width: 1170px;
+	}
+	.col-rt-1 {
+		width:16.6%;
+	}
+	.col-rt-2 {
+		width:30.33%;
+	}
+	.col-rt-3 {
+		width:50%;
+	}
+	.col-rt-4 {
+		width: 67.664%;
+	}
+	.col-rt-5 {
+		width: 83.33%;
+	}
+	
+
+}
+
+@media only screen and (min-width:240px) and (max-width: 768px){
+	 .ScriptTop h1, .ScriptTop ul {
+		text-align: center;
+	}
+	.ScriptTop h1{
+		margin-top:0;
+		margin-bottom:15px;
+	}
+	.ScriptTop ul{
+		 margin-top:12px;		
+	}
+	
+	.ScriptHeader h1,
+	.ScriptHeader h2, 
+	.scriptnav ul{
+		text-align:center;	
+	}
+	.scriptnav ul{
+		 margin-top:12px;		
+	}
+	#float-right{
+		float:none;	
+	}
+	
+}
+
+
+
+
+
+
+        *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.contact-parent{
+    background: #fff;
+    display:flex;
+    margin:80px 0;
+}
+
+.contact-child{
+    display:flex;
+    flex:1;
+    box-shadow:0px 0px 10px -2px rgba(0,0,0,0.75);
+}
+
+.child1{
+    background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("https://www.rae.es/sites/default/files/imagenes/articulos/Biblioteca_panoramica.JPG");
+    background-size:cover;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+    color:#fff;
+    padding:100px 0;
+}
+
+.child1 p{
+    padding-left:20%;
+    font-size:20px;
+    text-shadow:0px 0px 2px #000;
+}
+
+.child1 p span{
+    font-size:16px;
+    color:#9df2fd;
+}
+
+.child2{
+    flex-direction:column;
+    justify-content:space-around;
+    align-items:center;
+}
+
+.inside-contact{
+    width:90%;
+    margin:0 auto;
+}
+
+.inside-contact h2{
+    text-transform:uppercase;
+    text-align:center;
+    margin-top:50px;
+}
+
+.inside-contact h3{
+    text-align:center;
+    font-size:16px;
+    color:#0085e2;
+}
+
+.inside-contact input, .inside-contact textarea{
+    width:100%;
+    background-color:#eee;
+    border:1px solid rgba(0,0,0,0.48);
+    padding:5px 10px;
+    margin-bottom:20px;
+}
+
+.inside-contact input[type=submit]{
+    background-color:#000;
+    color:#fff;
+    transition:0.2s;
+    border:2px solid #000;
+    margin:30px 0;
+}
+
+.inside-contact input[type=submit]:hover{
+    background-color:#fff;
+    color:#000;
+    transition:0.2s;
+}
+
+@media screen and (max-width:991px){
+    .contact-parent{
+        display:block;
+        width:100%;
+    }
+
+    .child1{
+        display:none;
+    }
+
+    .child2{
+        background-image:linear-gradient(rgba(255,255,255,0.7),rgba(255,255,255,0.7)), url("https://cdn.pixabay.com/photo/2019/06/28/00/17/architecture-4303279_1280.jpg");
+        background-size:cover;
+    }
+
+    .inside-contact input, .inside-contact textarea{
+        background-color:#fff;
+    }
+}
+
+ .button1 {
+ display: inline-block;
+ padding: 8px 10px;
+ background-color: #26c8ce;
+ color: #fff;
+ font-weight: bold;
+ text-decoration: none;
+ border-radius: 5px;
+ box-shadow: 0px 3px 0px #26c8ce;
+}
+
+.button1:hover {
+ background-color: #4ea5df;
+ box-shadow: 0px 3px 0px #439ce6;
+}
+
+.button2 {
+ display: inline-block;
+ padding: 8px 10px;
+ background-color: #05802a;
+ color: #fff;
+ font-weight: bold;
+ text-decoration: none;
+
+}
+
+
+
+    </style>
+</head>
+<body>
+		
+
+
+
+<section>
+    
+    <main>
+<form method="POST" action="/add-book" enctype="multipart/form-data"> 
+    <div class="rt-container">
+          <div class="col-rt-12">
+              <div class="Scriptcontent">
+              
+               <div>
+            <div class="container">
+                <div class="contact-parent">
+                    <div class="contact-child child1">
+                        <p>
+                            <i class="fas fa-map-marker-alt"></i> BookBar <br />
+                            <span>I.I.S.S "Luigi dell'Erba"
+                                <br />
+                                Castellana Grotte, IT
+                            </span>
+                        </p>
+
+                        <p>
+                            <i class="fas fa-phone-alt"></i>Cap: 70013 <br />
+                            <span>Numero di telefono per supporto: 4566565656 </span>
+                        </p>
+
+                        <p>
+                            <i class=" far fa-envelope"></i> Mail Supporto <br />
+                            <span>bookbarproject2023@gmail.com</span>
+                        </p>
+                    </div>
+
+                    <div class="contact-child child2">
+                        <div class="inside-contact">
+                            <h2>Registra Libri</h2>
+                            <h3>
+                               <span id="confirm">
+                            </h3>
+
+                            <label for="title" style="font-size: 1.5em; color: rgb(3, 6, 177);">Titolo:</label> 
+                            <input type="text" name="title" id="title" required style="font-size: 1.5em; color: rgb(77, 73, 76);">
+
+                            <label for="author" style="font-size: 1.5em; color: rgb(23, 2, 146);">Autore:</label> <br>
+                            <input type="text" name="author" id="author" required style="font-size: 1.5em; color: rgb(77, 73, 76);"><br> 
+
+                            <label for="isbn" style="font-size: 1.5em; color: rgb(0, 10, 153);">Immagine di copertina:</label> 
+                            <input type="url" name="isbn" id="isbn" required style="font-size: 1.5em; color: rgb(77, 73, 76);"><br>
+                            
+                            <label for="cover" style="font-size: 1.5em; color: rgb(40, 0, 133);">Libro:</label> 
+                            <input type="file" name="cover" id="cover" required style="font-size: 1.5em; color: rgb(77, 73, 76);">
+
+                            
+                         
+                            <button type="submit"  id="btn_send"  class="button2">Aggiungi Libro</button> 
+                            <br><br>
+                            <a href="{{ url_for('registrazione') }}">Registra Personale</a>    
+                            <ul id="book-list"></ul> 
+                            
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    		
+           
+    		</div>
+		</div>
+    </div>
+    </form>
+</main>
+</section>
+<center>
+<form id="delete-book-form" action="/delete-book" method="POST">
+    <label for="title" style="color: rgb(230, 12, 12); font-size: 25px;" >Titolo del libro da Eliminare:</label>
+    <input type="text" name="title" id="title" placeholder="Inserisci il tiolo del libro"><br>
+    <button type="button" class="btn btn-danger" id="delete-book-btn">  Elimina libro  </button>
+<br><br>
+    <button type="button" onclick="window.location.href='/'" class="button1">    Indietro    </button><br>
+  </form>
+  <br> <br><br>
+</center>
+<br><br><br><br>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+  $(document).ready(function() {
+    // gestisce il clic sul pulsante di eliminazione del libro
+    $('#delete-book-btn').on('click', function(event) {
+      // previene il comportamento predefinito del pulsante
+      event.preventDefault();
+  
+      // invia la richiesta al server
+      $.ajax({
+        url: '/delete-book',
+        type: 'POST',
+        data: $('#delete-book-form').serialize(),
+        success: function(response) {
+          // mostra il messaggio di successo in un alert
+          window.alert(response.message);
+          // reindirizza l'utente alla pagina di form
+          window.location.href = '/form';
+        },
+        error: function(response) {
+          // mostra il messaggio di errore in un alert
+          window.alert(response.responseJSON.message);
+          // reindirizza l'utente alla pagina di form
+          window.location.href = response.responseJSON.redirect;
+        }
+      });
+    });
+  });
+  </script>
+
+
+    <!-- Analytics -->
+
+	</body>
+</html>
